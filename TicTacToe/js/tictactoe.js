@@ -37,33 +37,34 @@ function placeXOrO(squareNumber) {
         // This function plays placement sound.
         audio('./media/place.mp3');
         // This condition checks to see if it is computer's turn
-        if (activePlayer === 'O');
-        //This function disables clicking for computer choice.
-        disableClick();
-        //This function waits 1 second before computer places image and enable click.
-        setTimeout(function () { computersTurn(); }, 1000)
-    }
-    //Returning true is needed for our computersTurn() function to work.
-    return true;
-}
+        if (activePlayer === 'O') {
+            //This function disables clicking for computer choice.
+            disableClick();
+            //This function waits 1 second before computer places image and enable click.
+            setTimeout(function () { computersTurn(); }, 1000)
+        }
+        //Returning true is needed for our computersTurn() function to work.
+        return true;
 
-//This function results in a random square being selected.
-function computersTurn() {
-    // boolean is needed for our while loop
-    let success = false;
-    //This variable stores a random number 0-8 .
-    let pickASquare;
-    //This condition allows our while loop to keep trying if a square is selected already.
-    while (!success) {
-        //A random number between 0 and 8 is selected.
-        pickASquare = String(Math.floor(Math.random() * 9));
-        // If the random number evaluated returns true, the square hasn't been selected yet.
-        if (placeXOrO(pickASquare)) {
-            // This line calls the function.
-            placeXOrO(pickASquare);
-            //This changes our boolean and ends the loop.
-            success = true;
 
+        //This function results in a random square being selected.
+        function computersTurn() {
+            // boolean is needed for our while loop
+            let success = false;
+            //This variable stores a random number 0-8 .
+            let pickASquare;
+            //This condition allows our while loop to keep trying if a square is selected already.
+            while (!success) {
+                //A random number between 0 and 8 is selected.
+                pickASquare = String(Math.floor(Math.random() * 9));
+                // If the random number evaluated returns true, the square hasn't been selected yet.
+                if (placeXOrO(pickASquare)) {
+                    // This line calls the function.
+                    placeXOrO(pickASquare);
+                    //This changes our boolean and ends the loop.
+                    success = true;
+                };
+            }
         }
     }
 }
