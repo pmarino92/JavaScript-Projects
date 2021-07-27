@@ -1,2 +1,4 @@
 # JavaScript Projects
- This is what I'm working on with JavaScript!
+ These are some small projects that I did while doing my JavaScript course!
+ <hr>
+ 
